@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@babel/preset-typescript": "^7.12.16",
+    "@fortawesome/fontawesome-free": "^5.15.2",
+    "@rails/webpacker": "5.2.1",
+    "@tailwindcss/typography": "^0.4.0",
+    "@types/webpack-env": "^1.16.0",
+    "autoprefixer": "^9",
+    "postcss": "^7",
+    "stimulus": "^2.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "typescript": "^4.1.5"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.2"
+  }
+}
