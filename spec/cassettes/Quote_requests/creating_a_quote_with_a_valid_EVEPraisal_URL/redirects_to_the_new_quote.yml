@@ -1,0 +1,41 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://evepraisal.com/a/yqfdq.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Redimobot/1.0; (+https://github.com/bokoboshahni/redimo)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Wed, 17 Feb 2021 21:33:27 GMT
+      Content-Length:
+      - '513'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"yqfdq","created":1613593642,"kind":"listing","market_name":"jita","totals":{"buy":1734000,"sell":1943000,"volume":150},"items":[{"name":"Compressed
+        Veldspar","typeID":28432,"typeName":"Compressed Veldspar","typeVolume":0.15,"quantity":1000,"prices":{"all":{"avg":2156.607368985004,"max":21450,"median":2049,"min":6,"percentile":2505,"stddev":590.168277827778,"volume":24920272,"order_count":76},"buy":{"avg":1424.3259573662156,"max":1734,"median":1700,"min":6,"percentile":1734,"stddev":304.4998885498574,"volume":1557790,"order_count":6},"sell":{"avg":2217.0940179062814,"max":21450,"median":2060,"min":1943,"percentile":1967,"stddev":584.744541170347,"volume":23362482,"order_count":70},"updated":"2021-02-17T20:25:21.849471144Z","strategy":"orders"},"meta":{}}],"raw":"Compressed
+        Veldspar 1000","parser_lines":{"listing":[0]},"unparsed":{},"private":false,"price_percentage":100,"live":false,"expire_minutes":21600}
+
+        '
+  recorded_at: Wed, 17 Feb 2021 21:33:27 GMT
+recorded_with: VCR 6.0.0

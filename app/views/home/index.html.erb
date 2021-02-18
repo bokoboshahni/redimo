@@ -1,2 +1,10 @@
 <main role="main">
+  <div class="flex items-center justify-center h-screen">
+    <%= form_with model: @quote, html: { class: 'block' } do |f| %>
+      <%= f.label :evepraisal_url, class: 'block' do %>
+        <span class="text-gray-700">EVEPraisal URL</span>
+        <%= f.text_field :evepraisal_url, class: "block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50", placeholder: "https://evepraisal.com/a/..." %>
+      <% end %>
+    <% end %>
+  </div>
 </main>

@@ -1,0 +1,43 @@
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div>
+  <div class="pb-32 bg-gray-900">
+    <nav class="bg-gray-900">
+      <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="border-b border-gray-700">
+          <div class="flex items-center justify-between h-16 px-4 sm:px-0">
+            <div class="flex items-center">
+              <div class="flex-shrink-0">
+                <%= link_to root_path do %><%= image_pack_tag 'media/images/logo.png', class: 'w-8 h-8', alt: 'Redimo Logo' %><% end %>
+              </div>
+              <div class="hidden md:block">
+                <div class="flex items-baseline ml-10 space-x-4">
+                  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                  <%= link_to 'Home', root_path, class: 'px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white' %>
+
+                  <%= link_to 'Quotes', quotes_path, class: 'px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <header class="py-10">
+      <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold text-white">
+          Quote #<%= @quote.number %>
+        </h1>
+      </div>
+    </header>
+  </div>
+
+  <main class="-mt-32">
+    <div class="px-4 pb-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <!-- Replace with your content -->
+      <div class="px-5 py-6 bg-white rounded-lg shadow sm:px-6">
+        <div class="border-4 border-gray-200 border-dashed rounded-lg h-96"></div>
+      </div>
+      <!-- /End replace -->
+    </div>
+  </main>
+</div>
