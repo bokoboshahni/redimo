@@ -17,6 +17,7 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.3'
+gem 'spring', require: false
 gem 'validate_url', '~> 1.0'
 gem 'webpacker', '~> 5.2'
 
@@ -38,7 +39,6 @@ group :development do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
-  gem 'spring', require: false
   gem 'spring-commands-rspec', require: false
   gem 'spring-commands-rubocop', require: false
   gem 'spring-watcher-listen', require: false
