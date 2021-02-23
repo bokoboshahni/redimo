@@ -1,43 +1,179 @@
-<!-- This example requires Tailwind CSS v2.0+ -->
-<div>
-  <div class="pb-32 bg-gray-900">
-    <nav class="bg-gray-900">
-      <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="border-b border-gray-700">
-          <div class="flex items-center justify-between h-16 px-4 sm:px-0">
-            <div class="flex items-center">
-              <div class="flex-shrink-0">
-                <%= link_to root_path do %><%= image_pack_tag 'media/images/logo.png', class: 'w-8 h-8', alt: 'Redimo Logo' %><% end %>
-              </div>
-              <div class="hidden md:block">
-                <div class="flex items-baseline ml-10 space-x-4">
-                  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                  <%= link_to 'Home', root_path, class: 'px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white' %>
-
-                  <%= link_to 'Quotes', quotes_path, class: 'px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white' %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <header class="py-10">
-      <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-bold text-white">
-          Quote #<%= @quote.number %>
-        </h1>
-      </div>
-    </header>
-  </div>
-
-  <main class="-mt-32">
-    <div class="px-4 pb-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
-      <!-- Replace with your content -->
-      <div class="px-5 py-6 bg-white rounded-lg shadow sm:px-6">
-        <div class="border-4 border-gray-200 border-dashed rounded-lg h-96"></div>
-      </div>
-      <!-- /End replace -->
+<div class="max-w-6xl mx-auto">
+  <div class="overflow-hidden bg-white divide-y divide-gray-200 rounded-lg shadow-lg border-gray">
+    <div class="px-4 py-5 sm:px-6">
+      <!-- Content goes here -->
+      <h1>Quote #<%= @quote.number %></h1>
+      <!-- We use less vertical padding on card headers on desktop than on body sections -->
     </div>
-  </main>
+    <div class="px-4 py-5 sm:p-6">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+              Item
+            </th>
+            <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+              Quantity
+            </th>
+            <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+              m<sup>3</sup> (Single)
+            </th>
+            <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+              m<sup>3</sup> (Total)
+            </th>
+            <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+              ISK (Single)
+            </th>
+            <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+              ISK (Total)
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @quote.evepraisal_data['items'].each do |item| %>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0 w-10 h-10">
+                    <img class="w-10 h-10 rounded-full" src="https://imageserver.eveonline.com/Type/<%= item['typeID'] %>_32.png" alt="">
+                  </div>
+                  <div class="ml-4">
+                    <div class="text-sm font-medium text-gray-900">
+                      <%= item['typeName'] %>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-right text-gray-900"><%= number_with_delimiter(item['quantity'], delimiter: ',') %></div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-right text-gray-900"><%= number_with_precision(item['typeVolume'], precision: 2, delimiter: ',') %></div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-right text-gray-900"><%= number_with_precision(item['typeVolume'] * item['quantity'], precision: 2, delimiter: ',') %></div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-right text-gray-900"><%= number_with_precision(item['prices']['sell']['min'], precision: 2, delimiter: ',') %></div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-right text-gray-900"><%= number_with_precision(item['prices']['sell']['min'] * item['quantity'], precision: 2, delimiter: ',') %></div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan=4 class="px-6 py-4 whitespace-nowrap">
+            </td>
+            <td class="px-6 py-2 whitespace-nowrap">
+              <div class="text-sm font-semibold text-right text-gray-900">Subtotal</div>
+            </td>
+            <td class="px-6 py-2 whitespace-nowrap">
+              <div class="text-sm text-right text-gray-900"><%= number_with_precision(@quote.sell, delimiter: ',', precision: 2) %></div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan=4 class="px-6 py-4 whitespace-nowrap">
+            </td>
+            <td class="px-6 py-2 whitespace-nowrap">
+              <div class="text-sm font-semibold text-right text-gray-900">Procurement Fee (10%)</div>
+            </td>
+            <td class="px-6 py-2 whitespace-nowrap">
+              <div class="text-sm text-right text-gray-900"><%= number_with_precision(@quote.sell * 0.1, delimiter: ',', precision: 2) %></div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan=4 class="px-6 py-4 whitespace-nowrap">
+            </td>
+            <td class="px-6 py-2 whitespace-nowrap">
+              <div class="text-sm font-semibold text-right text-gray-900">Total Before Delivery</div>
+            </td>
+            <td class="px-6 py-2 whitespace-nowrap">
+              <div class="text-sm text-right text-gray-900"><%= number_with_precision(@quote.sell * 1.1, delimiter: ',', precision: 2) %></div>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="px-4 py-4 sm:px-6">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th scope="col" class="px-3 py-2 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+            </th>
+            <th scope="col" class="px-3 py-2 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+              Mendori (Devoid)
+            </th>
+            <th scope="col" class="px-3 py-2 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+              Moro (Khanid)
+            </th>
+            <th scope="col" class="px-3 py-2 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+              Riavayed (Devoid)
+            </th>
+            <th scope="col" class="px-3 py-2 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+              GE-8JV (Catch)
+            </th>
+            <th scope="col" class="px-3 py-2 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+              P-ZMZV (Querious)
+            </th>
+            <th scope="col" class="px-3 py-2 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+              PZMA-E (Impass)
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="px-3 py-2 whitespace-normal">
+              <div class="text-sm font-bold text-gray-900">Delivery Fee</div>
+            </td>
+            <td class="px-3 py-2 whitespace-normal">
+              <div class="text-sm text-gray-900"><%= number_with_precision(@quote.price['mendori']['courier'], precision: 0, delimiter: ',') %></div>
+            </td>
+            <td class="px-3 py-2 whitespace-normal">
+              <div class="text-sm text-gray-900"><%= number_with_precision(@quote.price['moro']['courier'], precision: 0, delimiter: ',') %></div>
+            </td>
+            <td class="px-3 py-2 whitespace-normal">
+              <div class="text-sm text-gray-900"><%= number_with_precision(@quote.price['riavayed']['courier'], precision: 0, delimiter: ',') %></div>
+            </td>
+            <td class="px-3 py-2 whitespace-normal">
+              <div class="text-sm text-gray-900"><%= number_with_precision(@quote.price['ge_8jv']['courier'], precision: 0, delimiter: ',') %></div>
+            </td>
+            <td class="px-3 py-2 whitespace-normal">
+              <div class="text-sm text-gray-900"><%= number_with_precision(@quote.price['p_zmzv']['courier'], precision: 0, delimiter: ',') %></div>
+            </td>
+            <td class="px-3 py-2 whitespace-normal">
+              <div class="text-sm text-gray-900"><%= number_with_precision(@quote.price['pzma_e']['courier'], precision: 0, delimiter: ',') %></div>
+            </td>
+          </tr>
+          <tr>
+            <td class="px-3 py-2 whitespace-normal">
+              <div class="text-lg font-bold text-gray-900">Total</div>
+            </td>
+            <td class="px-3 py-2 whitespace-normal">
+              <div class="text-lg text-gray-900"><%= number_with_precision(@quote.price['mendori']['total'], precision: 0, delimiter: ',') %></div>
+            </td>
+            <td class="px-3 py-2 whitespace-normal">
+              <div class="text-lg text-gray-900"><%= number_with_precision(@quote.price['moro']['total'], precision: 0, delimiter: ',') %></div>
+            </td>
+            <td class="px-3 py-2 whitespace-normal">
+              <div class="text-lg text-gray-900"><%= number_with_precision(@quote.price['riavayed']['total'], precision: 0, delimiter: ',') %></div>
+            </td>
+            <td class="px-3 py-2 whitespace-normal">
+              <div class="text-lg text-gray-900"><%= number_with_precision(@quote.price['ge_8jv']['total'], precision: 0, delimiter: ',') %></div>
+            </td>
+            <td class="px-3 py-2 whitespace-normal">
+              <div class="text-lg text-gray-900"><%= number_with_precision(@quote.price['p_zmzv']['total'], precision: 0, delimiter: ',') %></div>
+            </td>
+            <td class="px-3 py-2 whitespace-normal">
+              <div class="text-lg text-gray-900"><%= number_with_precision(@quote.price['pzma_e']['total'], precision: 0, delimiter: ',') %></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="mt-5 prose">
+        <p>This quote is an estimate based on the provided appraisal and current courier rates and the final cost is subject to change.</p>
+      </div>
+    </div>
+  </div>
 </div>
