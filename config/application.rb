@@ -24,6 +24,19 @@ Bundler.require(*Rails.groups)
 module Redimo
   # The Rails application.
   class Application < Rails::Application
+    ESI_CUSTOMER_SCOPES = 'publicData'
+
+    ESI_PROCURER_SCOPES = %w[
+      publicData
+      esi-mail.read_mail.v1
+      esi-mail.send_mail.v1
+      esi-wallet.read_character_wallet.v1
+      esi-assets.read_assets.v1
+      esi-markets.structure_markets.v1
+      esi-markets.read_character_orders.v1
+      esi-contracts.read_character_contracts.v1
+    ].join(' ')
+
     USER_AGENT = 'Redimobot/1.0; (+https://github.com/bokoboshahni/redimo)'
 
     config.load_defaults 6.1

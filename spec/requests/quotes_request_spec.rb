@@ -17,7 +17,7 @@ RSpec.describe 'Quote requests', type: :request do
   describe 'retrieving a quote', :vcr do
     context 'when the quote exists' do
       it 'responds with success' do
-        quote = FactoryBot.create(:quote, evepraisal_url: 'https://evepraisal.com/a/yqfdq')
+        quote = CreateQuote.new(evepraisal_url: 'https://evepraisal.com/a/yqfdq').call
         get "/quotes/#{quote.id}"
         expect(response).to have_http_status(:ok)
       end

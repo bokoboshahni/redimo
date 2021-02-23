@@ -10,7 +10,7 @@ class CreateQuotes < ActiveRecord::Migration[6.1]
       t.jsonb :evepraisal_data
       t.datetime :expires_at
       t.serial :number, null: false
-      t.decimal :price
+      t.jsonb :price
       t.uuid :uuid, null: false
       t.timestamps null: false
 
@@ -18,6 +18,7 @@ class CreateQuotes < ActiveRecord::Migration[6.1]
       t.index :evepraisal_data, using: :gin
       t.index :evepraisal_id, unique: true
       t.index :expires_at
+      t.index :price, using: :gin
       t.index :uuid, unique: true
     end
   end

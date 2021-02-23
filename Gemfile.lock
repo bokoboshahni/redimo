@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/heartcombo/devise.git
+  revision: 0cd72a56f984a7ff089246f87a8b259120545edd
+  specs:
+    devise (4.7.3)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -66,6 +77,7 @@ GEM
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
     ast (2.4.2)
+    bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.7.2)
       msgpack (~> 1.0)
@@ -154,6 +166,10 @@ GEM
     omniauth-oauth2 (1.7.1)
       oauth2 (~> 1.4)
       omniauth (>= 1.9, < 3)
+    omniauth-rails_csrf_protection (1.0.0)
+      actionpack (>= 4.2)
+      omniauth (~> 2.0)
+    orm_adapter (0.5.0)
     parallel (1.20.1)
     parser (3.0.0.0)
       ast (~> 2.4.1)
@@ -209,6 +225,9 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.0.3)
+    responders (3.0.1)
+      actionpack (>= 5.0)
+      railties (>= 5.0)
     rexml (3.2.4)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
@@ -284,6 +303,8 @@ GEM
       activemodel (>= 3.0.0)
       public_suffix
     vcr (6.0.0)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -314,6 +335,7 @@ DEPENDENCIES
   brakeman
   bundler-audit
   capybara
+  devise!
   dotenv-rails
   factory_bot_rails
   faker
@@ -321,7 +343,8 @@ DEPENDENCIES
   listen (~> 3.3)
   nanoid (~> 2.0)
   omniauth (~> 2.0)
-  omniauth-eve_online-sso (~> 0.2.0)
+  omniauth-eve_online-sso (~> 0.2)
+  omniauth-rails_csrf_protection (~> 1.0)
   pg (~> 1.1)
   pry-byebug
   puma (~> 5.0)

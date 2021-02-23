@@ -12,7 +12,7 @@
 # **`evepraisal_data`**  | `jsonb`            |
 # **`expires_at`**       | `datetime`         |
 # **`number`**           | `integer`          | `not null`
-# **`price`**            | `decimal(, )`      |
+# **`price`**            | `jsonb`            |
 # **`uuid`**             | `uuid`             | `not null`
 # **`created_at`**       | `datetime`         | `not null`
 # **`updated_at`**       | `datetime`         | `not null`
@@ -28,6 +28,8 @@
 #     * **`expires_at`**
 # * `index_quotes_on_number` (_unique_):
 #     * **`number`**
+# * `index_quotes_on_price` (_using_ gin):
+#     * **`price`**
 # * `index_quotes_on_uuid` (_unique_):
 #     * **`uuid`**
 #
@@ -40,4 +42,20 @@ class Quote < ApplicationRecord
 
   validates :evepraisal_url, presence: true, url: { allow_blank: true, schemes: 'https' },
                              format: { with: EVEPRAISAL_URL_FORMAT }
+
+  def items
+    evepraisal_data['items']
+  end
+
+  def sell
+    evepraisal_data['totals']['sell']
+  end
+
+  def volume
+    evepraisal_data['totals']['volume']
+  end
+
+  def collateral
+    sell * 1.1
+  end
 end

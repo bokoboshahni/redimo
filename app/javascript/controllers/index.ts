@@ -7,3 +7,6 @@ import { definitionsFromContext } from 'stimulus/webpack-helpers'
 const application = Application.start()
 const context = require.context('controllers', true, /_controller\.ts$/)
 application.load(definitionsFromContext(context))
+
+import { Dropdown } from 'tailwindcss-stimulus-components'
+application.register('dropdown', Dropdown)
