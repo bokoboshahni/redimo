@@ -32,7 +32,7 @@ group :development do
   gem 'annotate', require: false
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
-  gem 'listen', '~> 3.3'
+  gem 'listen', '~> 3.5'
   gem 'rack-mini-profiler', '~> 2.3'
   gem 'rubocop', require: false
   gem 'rubocop-faker', require: false
