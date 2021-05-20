@@ -33,7 +33,7 @@ group :development do
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
   gem 'listen', '~> 3.3'
-  gem 'rack-mini-profiler', '~> 2.0'
+  gem 'rack-mini-profiler', '~> 2.3'
   gem 'rubocop', require: false
   gem 'rubocop-faker', require: false
   gem 'rubocop-performance', require: false
