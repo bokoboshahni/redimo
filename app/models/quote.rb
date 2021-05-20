@@ -36,7 +36,7 @@
 class Quote < ApplicationRecord
   include UUIDGeneration
 
-  EVEPRAISAL_URL_FORMAT = %r{\Ahttps://evepraisal\.com/a/([a-zA-Z0-9]{1,13})(/[a-zA-Z0-9]{1,13})?\z}.freeze
+  EVEPRAISAL_URL_FORMAT = %r{\Ahttps://evepraisal\.com/a/([a-zA-Z0-9]{1,13})(/[a-zA-Z0-9]{1,13})?\z}
 
   attr_accessor :evepraisal_url
 
