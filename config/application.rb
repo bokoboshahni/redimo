@@ -21,7 +21,7 @@ require 'action_view/railtie'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Redimo
+module HOS
   # The Rails application.
   class Application < Rails::Application
     ESI_CUSTOMER_SCOPES = 'publicData'
@@ -37,7 +37,7 @@ module Redimo
       esi-contracts.read_character_contracts.v1
     ].join(' ')
 
-    USER_AGENT = 'Redimobot/1.0; (+https://github.com/bokoboshahni/redimo)'
+    USER_AGENT = 'HOSBot/1.0; (+https://github.com/bokoboshahni/hos)'
 
     config.load_defaults 6.1
 

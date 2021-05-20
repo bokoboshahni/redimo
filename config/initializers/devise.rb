@@ -9,13 +9,13 @@ Devise.setup do |config|
                   ENV['ESI_CUSTOMER_CLIENT_ID'],
                   ENV['ESI_CUSTOMER_CLIENT_SECRET'],
                   strategy_class: OmniAuth::Strategies::EveOnlineSso,
-                  scope: Redimo::Application::ESI_CUSTOMER_SCOPES,
+                  scope: HOS::Application::ESI_CUSTOMER_SCOPES,
                   name: 'customer'
 
   config.omniauth :procurer,
                   ENV['ESI_PROCURER_CLIENT_ID'],
                   ENV['ESI_PROCURER_CLIENT_SECRET'],
                   strategy_class: OmniAuth::Strategies::EveOnlineSso,
-                  scope: Redimo::Application::ESI_PROCURER_SCOPES,
+                  scope: HOS::Application::ESI_PROCURER_SCOPES,
                   name: 'procurer'
 end

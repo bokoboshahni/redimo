@@ -5,11 +5,11 @@ default: &default
 
 development:
   <<: *default
-  database: redimo_development
+  database: hos_development
 
 test:
   <<: *default
-  database: redimo_test
+  database: hos_test
   <% if ENV['GITHUB_ACTIONS'] == 'true' %>
   host: localhost
   port: 5432
