@@ -9,7 +9,7 @@ gem 'dotenv-rails', groups: %i[development test]
 
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', github: 'heartcombo/devise'
-gem 'faraday', '~> 1.3'
+gem 'faraday', '~> 1.4'
 gem 'nanoid', '~> 2.0'
 gem 'omniauth', '~> 2.0'
 gem 'omniauth-eve_online-sso', '~> 0.2'
