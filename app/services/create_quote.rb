@@ -25,7 +25,7 @@ class CreateQuote
   private
 
   def fetch_evepraisal(url)
-    response = Faraday.get("#{url}.json", {}, { 'User-Agent': Redimo::Application::USER_AGENT })
+    response = Faraday.get("#{url}.json", {}, { 'User-Agent': HOS::Application::USER_AGENT })
     return if response.status != 200
 
     JSON.parse(response.body)
