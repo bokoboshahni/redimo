@@ -19,7 +19,7 @@ gem 'puma', '~> 5.3'
 gem 'rails', '~> 6.1.3'
 gem 'spring', require: false
 gem 'validate_url', '~> 1.0'
-gem 'webpacker', '~> 5.2'
+gem 'webpacker', '~> 5.4'
 
 group :development, :test do
   gem 'factory_bot_rails'
