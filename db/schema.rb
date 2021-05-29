@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_18_164702) do
+ActiveRecord::Schema.define(version: 2021_05_29_164046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -28,9 +28,13 @@ ActiveRecord::Schema.define(version: 2021_02_18_164702) do
     t.uuid "uuid", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "eve_alliance_id"
+    t.integer "eve_corporation_id"
+    t.index ["eve_alliance_id"], name: "index_users_on_eve_alliance_id"
     t.index ["eve_character_id"], name: "index_users_on_eve_character_id", unique: true
     t.index ["eve_character_name"], name: "index_users_on_eve_character_name", unique: true
     t.index ["eve_character_owner_hash"], name: "index_users_on_eve_character_owner_hash"
+    t.index ["eve_corporation_id"], name: "index_users_on_eve_corporation_id"
     t.index ["uuid"], name: "index_users_on_uuid", unique: true
   end
 

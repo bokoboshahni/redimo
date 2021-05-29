@@ -6,16 +6,16 @@ Devise.setup do |config|
   config.timeout_in = 30.minutes
 
   config.omniauth :customer,
-                  ENV['ESI_CUSTOMER_CLIENT_ID'],
-                  ENV['ESI_CUSTOMER_CLIENT_SECRET'],
+                  Rails.application.config.x.esi.customer_client_id,
+                  Rails.application.config.x.esi.customer_client_secret,
                   strategy_class: OmniAuth::Strategies::EveOnlineSso,
-                  scope: HOS::Application::ESI_CUSTOMER_SCOPES,
+                  scope: Rails.application.config.x.esi.customer_scopes,
                   name: 'customer'
 
   config.omniauth :associate,
-                  ENV['ESI_ASSOCIATE_CLIENT_ID'],
-                  ENV['ESI_ASSOCIATE_CLIENT_SECRET'],
+                  Rails.application.config.x.esi.associate_client_id,
+                  Rails.application.config.x.esi.associate_client_secret,
                   strategy_class: OmniAuth::Strategies::EveOnlineSso,
-                  scope: HOS::Application::ESI_ASSOCIATE_SCOPES,
+                  scope: Rails.application.config.x.esi.associate_scopes,
                   name: 'associate'
 end
