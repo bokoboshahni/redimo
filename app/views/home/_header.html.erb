@@ -1,0 +1,88 @@
+<header class="relative">
+  <div class="bg-gray-900 pt-6">
+    <nav class="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6" aria-label="Global">
+      <div class="flex items-center flex-1">
+        <div class="flex items-center justify-between w-full md:w-auto">
+          <a href="#">
+            <span class="sr-only">House of Suns</span>
+            <%= image_pack_tag 'media/images/hos-logo.png', class: 'h-8 w-auto sm:h-10', alt: '' %>
+          </a>
+          <div class="-mr-2 flex items-center md:hidden">
+            <button type="button" class="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white" aria-expanded="false">
+              <span class="sr-only">Open main menu</span>
+              <!-- Heroicon name: outline/menug -->
+              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="hidden space-x-8 md:flex md:ml-10">
+          <a href="#" class="text-base font-medium text-white hover:text-gray-300">Services</a>
+
+          <a href="#" class="text-base font-medium text-white hover:text-gray-300">Rates</a>
+
+          <a href="#" class="text-base font-medium text-white hover:text-gray-300">Resources</a>
+
+          <a href="#" class="text-base font-medium text-white hover:text-gray-300">Company</a>
+        </div>
+      </div>
+      <div class="hidden md:flex md:items-center md:space-x-3">
+        <span class="text-sm text-white hover:text-gray-400">
+          Existing customer?
+        </span>
+        <%= form_with url: user_customer_omniauth_authorize_path do |f| %>
+          <%= f.submit 'Customer Login', type: :image, src: asset_pack_path('media/images/eve-sso-login-white-small.png'), class: 'align-middle' %>
+        <% end %>
+      </div>
+    </nav>
+  </div>
+
+  <!--
+    Mobile menu, show/hide based on menu open state.
+
+    Entering: "duration-150 ease-out"
+      From: "opacity-0 scale-95"
+      To: "opacity-100 scale-100"
+    Leaving: "duration-100 ease-in"
+      From: "opacity-100 scale-100"
+      To: "opacity-0 scale-95"
+  -->
+  <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden">
+    <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
+      <div class="px-5 pt-4 flex items-center justify-between">
+        <div>
+          <%= image_tag 'hos-logo.png', class: 'h-8 w-auto sm:h-10', alt: '' %>
+        </div>
+        <div class="-mr-2">
+          <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-600">
+            <span class="sr-only">Close menu</span>
+            <!-- Heroicon name: outline/x -->
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="pt-5 pb-6">
+        <div class="px-2 space-y-1">
+          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">Services</a>
+
+          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">Rates</a>
+
+          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">Resources</a>
+
+          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">Company</a>
+        </div>
+        <div class="mt-6 px-5">
+          <p class="text-center text-base font-medium text-gray-500">
+            Existing customer?
+            <%= form_with url: user_associate_omniauth_authorize_path do |f| %>
+              <%= f.submit 'Login with EVE Online', class: 'inline cursor-pointer bg-transparent outline-none focus:outline-none text-base text-gray-900 hover:underline' %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
