@@ -2,13 +2,13 @@
 
 # Controller for EVE SSO authentication.
 class AuthenticationsController < Devise::OmniauthCallbacksController
-  skip_before_action :verify_authenticity_token, only: %i[customer procurer]
+  skip_before_action :verify_authenticity_token, only: %i[customer associate]
 
-  def customer
+  def associate
     esi_callback
   end
 
-  def procurer
+  def customer
     esi_callback
   end
 

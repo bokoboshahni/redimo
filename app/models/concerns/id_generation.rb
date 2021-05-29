@@ -11,6 +11,6 @@ module IDGeneration
   end
 
   def generate_id
-    self.id = Nanoid.generate(alphabet: ID_ALPHABET)
+    self.id = Nanoid.generate(alphabet: ID_ALPHABET, size: 8)
   end
 end

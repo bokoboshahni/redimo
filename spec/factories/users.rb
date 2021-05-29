@@ -6,15 +6,20 @@
 #
 # ### Columns
 #
-# Name                            | Type               | Attributes
-# ------------------------------- | ------------------ | ---------------------------
-# **`id`**                        | `text`             | `not null, primary key`
-# **`eve_character_name`**        | `text`             |
-# **`eve_character_owner_hash`**  | `text`             |
-# **`uuid`**                      | `uuid`             | `not null`
-# **`created_at`**                | `datetime`         | `not null`
-# **`updated_at`**                | `datetime`         | `not null`
-# **`eve_character_id`**          | `text`             |
+# Name                                | Type               | Attributes
+# ----------------------------------- | ------------------ | ---------------------------
+# **`id`**                            | `text`             | `not null, primary key`
+# **`admin`**                         | `boolean`          | `default(FALSE)`
+# **`associate`**                     | `boolean`          | `default(FALSE)`
+# **`esi_access_token_ciphertext`**   | `text`             |
+# **`esi_expires_at`**                | `datetime`         |
+# **`esi_refresh_token_ciphertext`**  | `text`             |
+# **`eve_character_name`**            | `text`             |
+# **`eve_character_owner_hash`**      | `text`             |
+# **`uuid`**                          | `uuid`             | `not null`
+# **`created_at`**                    | `datetime`         | `not null`
+# **`updated_at`**                    | `datetime`         | `not null`
+# **`eve_character_id`**              | `text`             |
 #
 # ### Indexes
 #
@@ -28,6 +33,6 @@
 #     * **`uuid`**
 #
 FactoryBot.define do
-  factory :user do
+  factory :users do
   end
 end

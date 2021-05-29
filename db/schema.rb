@@ -16,24 +16,12 @@ ActiveRecord::Schema.define(version: 2021_02_18_164702) do
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "quotes", id: :text, force: :cascade do |t|
-    t.text "evepraisal_id"
-    t.jsonb "evepraisal_data"
-    t.datetime "expires_at"
-    t.serial "number", null: false
-    t.jsonb "price"
-    t.uuid "uuid", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["evepraisal_data"], name: "index_quotes_on_evepraisal_data", using: :gin
-    t.index ["evepraisal_id"], name: "index_quotes_on_evepraisal_id", unique: true
-    t.index ["expires_at"], name: "index_quotes_on_expires_at"
-    t.index ["number"], name: "index_quotes_on_number", unique: true
-    t.index ["price"], name: "index_quotes_on_price", using: :gin
-    t.index ["uuid"], name: "index_quotes_on_uuid", unique: true
-  end
-
   create_table "users", id: :text, force: :cascade do |t|
+    t.boolean "admin", default: false
+    t.boolean "associate", default: false
+    t.text "esi_access_token_ciphertext"
+    t.datetime "esi_expires_at"
+    t.text "esi_refresh_token_ciphertext"
     t.text "eve_character_id"
     t.text "eve_character_name"
     t.text "eve_character_owner_hash"

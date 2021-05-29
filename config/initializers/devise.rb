@@ -12,10 +12,10 @@ Devise.setup do |config|
                   scope: HOS::Application::ESI_CUSTOMER_SCOPES,
                   name: 'customer'
 
-  config.omniauth :procurer,
-                  ENV['ESI_PROCURER_CLIENT_ID'],
-                  ENV['ESI_PROCURER_CLIENT_SECRET'],
+  config.omniauth :associate,
+                  ENV['ESI_ASSOCIATE_CLIENT_ID'],
+                  ENV['ESI_ASSOCIATE_CLIENT_SECRET'],
                   strategy_class: OmniAuth::Strategies::EveOnlineSso,
-                  scope: HOS::Application::ESI_PROCURER_SCOPES,
-                  name: 'procurer'
+                  scope: HOS::Application::ESI_ASSOCIATE_SCOPES,
+                  name: 'associate'
 end
