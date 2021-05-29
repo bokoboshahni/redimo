@@ -1,8 +1,0 @@
-<% content_for :main do %>
-  <div class="flex flex-col h-screen" style="background-image: url(<%= asset_pack_path 'media/images/background.png' %>); background-size: 100%; background-repeat: no-repeat;">
-    <%= render 'nav' %>
-    <%= yield %>
-    <%= render 'footer' %>
-  </div>
-<% end %>
-<%= render template: 'layouts/application' %>
