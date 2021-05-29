@@ -39,6 +39,7 @@ group :development do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
+  gem 'solargraph', require: false
   gem 'spring-commands-rspec', require: false
   gem 'spring-commands-rubocop', require: false
   gem 'spring-watcher-listen', require: false
