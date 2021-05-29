@@ -24,9 +24,13 @@ Bundler.require(*Rails.groups)
 module HOS
   # The Rails application.
   class Application < Rails::Application
-    ESI_CUSTOMER_SCOPES = 'publicData'
+    config.x.esi.customer_client_id = ENV['ESI_CUSTOMER_CLIENT_ID']
+    config.x.esi.customer_client_secret = ENV['ESI_CUSTOMER_CLIENT_SECRET']
+    config.x.esi.customer_scopes = 'publicData'
 
-    ESI_ASSOCIATE_SCOPES = %w[
+    config.x.esi.associate_client_id = ENV['ESI_ASSOCIATE_CLIENT_ID']
+    config.x.esi.associate_client_secret = ENV['ESI_ASSOCIATE_CLIENT_SECRET']
+    config.x.esi.associate_scopes = %w[
       publicData
       esi-mail.read_mail.v1
       esi-mail.send_mail.v1
@@ -37,7 +41,12 @@ module HOS
       esi-contracts.read_character_contracts.v1
     ].join(' ')
 
-    USER_AGENT = 'House of Suns/1.0; (+https://github.com/bokoboshahni/hos)'
+    config.x.esi.base_url = 'https://esi.evetech.net/dev'
+
+    config.x.esi.user_agent = 'House of Suns/1.0; (+https://github.com/bokoboshahni/hos)'
+
+    config.x.hos.allowed_alliance_ids = ENV.fetch('ALLOWED_ALLIANCE_IDS', '').strip.split(',')
+    config.x.hos.allowed_corporation_ids = ENV.fetch('ALLOWED_CORPORATION_IDS', '').strip.split(',')
 
     config.load_defaults 6.1
 

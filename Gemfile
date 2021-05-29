@@ -10,6 +10,8 @@ gem 'dotenv-rails', groups: %i[development test]
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', github: 'heartcombo/devise'
 gem 'faraday', '~> 1.4'
+gem 'faraday-http-cache', '~> 2.2'
+gem 'faraday_middleware', '~> 1.0'
 gem 'lockbox', '~> 0.6'
 gem 'nanoid', '~> 2.0'
 gem 'omniauth', '~> 2.0'
@@ -18,6 +20,7 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.3'
 gem 'rails', '~> 6.1.3'
+gem 'retriable', '~> 3.1.2'
 gem 'spring', require: false
 gem 'validate_url', '~> 1.0'
 gem 'webpacker', '~> 5.4'
