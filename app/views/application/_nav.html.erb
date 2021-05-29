@@ -27,15 +27,13 @@
           </button>
         </div>
         <div class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
-          <div class="flex items-center flex-shrink-0">
-            <%= image_pack_tag 'media/images/hos-mark-gray.svg', class: 'block w-auto h-8 lg:hidden', alt: 'House of Suns' %>
-            <%= image_pack_tag 'media/images/hos-logo-gray.svg', class: 'hidden w-auto h-8 lg:block', alt: 'House of Suns' %>
-          </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <%= link_to 'Home', root_path, class: 'px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white' %>
-              <%= link_to 'Rates', root_path, class: 'px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white' %>
+              <%= link_to 'Logistics', root_path, class: 'px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white' %>
+              <%= link_to 'Procurement', root_path, class: 'px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white' %>
+              <%= link_to 'Reprocessing', root_path, class: 'px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white' %>
               <% if user_signed_in? %>
                 <%= link_to 'Quotes', root_path, class: 'px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white' %>
                 <%= link_to 'Orders', root_path, class: 'px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white' %>

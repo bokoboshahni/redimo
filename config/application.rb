@@ -26,7 +26,7 @@ module HOS
   class Application < Rails::Application
     ESI_CUSTOMER_SCOPES = 'publicData'
 
-    ESI_PROCURER_SCOPES = %w[
+    ESI_ASSOCIATE_SCOPES = %w[
       publicData
       esi-mail.read_mail.v1
       esi-mail.send_mail.v1
@@ -37,7 +37,7 @@ module HOS
       esi-contracts.read_character_contracts.v1
     ].join(' ')
 
-    USER_AGENT = 'HOSBot/1.0; (+https://github.com/bokoboshahni/hos)'
+    USER_AGENT = 'House of Suns/1.0; (+https://github.com/bokoboshahni/hos)'
 
     config.load_defaults 6.1
 
