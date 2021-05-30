@@ -36,3 +36,6 @@ yarn-debug.log*
 .env.test.local
 .env.production.local
 .env
+
+/db/sde/*
+/db/esi/*

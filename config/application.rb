@@ -41,9 +41,11 @@ module HOS
       esi-contracts.read_character_contracts.v1
     ].join(' ')
 
-    config.x.esi.base_url = 'https://esi.evetech.net/dev'
+    config.x.esi.base_url = 'https://esi.evetech.net'
 
-    config.x.esi.user_agent = 'House of Suns/1.0; (+https://github.com/bokoboshahni/hos)'
+    config.x.janice.api_key = ENV['JANICE_API_KEY']
+
+    config.x.hos.user_agent = 'House of Suns/1.0; (+https://github.com/bokoboshahni/hos)'
 
     config.x.hos.allowed_alliance_ids = ENV.fetch('ALLOWED_ALLIANCE_IDS', '').strip.split(',')
     config.x.hos.allowed_corporation_ids = ENV.fetch('ALLOWED_CORPORATION_IDS', '').strip.split(',')

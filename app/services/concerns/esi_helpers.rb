@@ -24,7 +24,7 @@ module ESIHelpers
 
   def esi_default_headers
     {
-      'User-Agent': esi_config.user_agent
+      'User-Agent': Rails.application.config.x.hos.user_agent
     }
   end
 

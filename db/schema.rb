@@ -10,11 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_29_164046) do
+ActiveRecord::Schema.define(version: 2021_05_29_234347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "eve_types", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.decimal "capacity"
+    t.text "description"
+    t.jsonb "dogma_attributes"
+    t.jsonb "dogma_effects"
+    t.integer "graphic_id"
+    t.integer "group_id"
+    t.integer "icon_id"
+    t.integer "market_group_id"
+    t.decimal "mass"
+    t.text "name"
+    t.decimal "packaged_volume"
+    t.integer "portion_size"
+    t.boolean "published"
+    t.decimal "radius"
+    t.integer "type_id"
+    t.decimal "volume"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["type_id"], name: "index_eve_types_on_type_id", unique: true
+  end
+
+  create_table "quotes", id: :text, force: :cascade do |t|
+    t.text "appraisal_id"
+    t.text "appraisal_url"
+    t.jsonb "appraisal_data"
+    t.text "appraisal_type"
+    t.datetime "expires_at"
+    t.serial "number", null: false
+    t.jsonb "price_data"
+    t.text "type"
+    t.uuid "uuid", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["appraisal_data"], name: "index_quotes_on_appraisal_data", using: :gin
+    t.index ["appraisal_id"], name: "index_quotes_on_appraisal_id"
+    t.index ["appraisal_type"], name: "index_quotes_on_appraisal_type"
+    t.index ["expires_at"], name: "index_quotes_on_expires_at"
+    t.index ["number"], name: "index_quotes_on_number", unique: true
+    t.index ["type"], name: "index_quotes_on_type"
+    t.index ["uuid"], name: "index_quotes_on_uuid", unique: true
+  end
 
   create_table "users", id: :text, force: :cascade do |t|
     t.boolean "admin", default: false

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://esi.evetech.net/dev/characters/2113024536
+    uri: https://esi.evetech.net/latest/characters/2113024536
     body:
       encoding: US-ASCII
       string: ''
@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 29 May 2021 16:51:13 GMT
+      - Thu, 03 Jun 2021 19:45:52 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Content-Length:
@@ -45,20 +45,20 @@ http_interactions:
       Etag:
       - '"6da92185cd28c5ad47df496bfe40dc61cdd19fc26551dd338ae0614d"'
       Expires:
-      - Sun, 30 May 2021 16:35:53 GMT
+      - Fri, 04 Jun 2021 18:25:09 GMT
       Last-Modified:
-      - Sat, 29 May 2021 16:35:53 GMT
+      - Thu, 03 Jun 2021 18:25:09 GMT
       Strict-Transport-Security:
       - max-age=31536000
       X-Esi-Error-Limit-Remain:
       - '100'
       X-Esi-Error-Limit-Reset:
-      - '47'
+      - '8'
       X-Esi-Request-Id:
-      - 8cc612a6-c2fc-4d21-b46b-2238c48a6fbc
+      - 46789a4b-2966-465b-afd8-703af35133a1
     body:
       encoding: UTF-8
       string: '{"alliance_id":99003214,"ancestry_id":37,"birthday":"2017-07-20T16:28:17Z","bloodline_id":13,"corporation_id":98169165,"description":"","gender":"male","name":"Bokobo
         Shahni","race_id":4,"security_status":0.7826388230000001}'
-  recorded_at: Sat, 29 May 2021 16:51:13 GMT
+  recorded_at: Thu, 03 Jun 2021 19:45:52 GMT
 recorded_with: VCR 6.0.0

@@ -11,6 +11,6 @@ class GetCharacter
   end
 
   def call
-    esi_get("/characters/#{character_id}")
+    esi_get("/latest/characters/#{character_id}")
   end
 end
