@@ -21,6 +21,8 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.3'
 gem 'rails', '~> 6.1.3'
 gem 'retriable', '~> 3.1.2'
+gem 'sentry-rails', '~> 4.5'
+gem 'sentry-ruby', '~> 4.5'
 gem 'spring', require: false
 gem 'tty-progressbar', require: false
 gem 'typhoeus', require: false
