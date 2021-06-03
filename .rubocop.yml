@@ -29,6 +29,13 @@ Metrics/MethodLength:
   Exclude:
     - db/migrate/*.rb
 
+Rails/UnknownEnv:
+  Environments:
+    - development
+    - production
+    - staging
+    - test
+
 RSpec/EmptyExampleGroup:
   Exclude:
     - spec/requests/**/*_spec.rb
