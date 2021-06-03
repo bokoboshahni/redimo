@@ -51,14 +51,14 @@ class User < ApplicationRecord
       u.eve_character_owner_hash = auth.info.character_owner_hash
     end
 
-    user.credentials_from_sso
+    user.credentials_from_sso(auth)
     user.character_info_from_esi
     user.save
     user
   end
 
   def character_info_from_esi
-    character_info = GetCharacter.new(user.eve_character_id).call
+    character_info = GetCharacter.new(eve_character_id).call
     self.eve_alliance_id = character_info['alliance_id']
     self.eve_corporation_id = character_info['corporation_id']
   end
