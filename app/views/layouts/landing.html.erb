@@ -1,0 +1,12 @@
+<% content_for :main do %>
+  <div class="bg-gray-900">
+    <div class="relative overflow-hidden">
+      <%= render partial: 'landing/header' %>
+      <main>
+        <%= yield %>
+      </main>
+      <%= render partial: 'landing/footer' %>
+    </div>
+</div>
+<% end %>
+<%= render template: 'layouts/application' %>

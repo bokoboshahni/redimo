@@ -110,6 +110,8 @@ GEM
       railties (>= 3.2)
     e2mmap (0.1.0)
     erubi (1.10.0)
+    ethon (0.14.0)
+      ffi (>= 1.15.0)
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
@@ -330,9 +332,19 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    strings-ansi (0.2.0)
     thor (1.1.0)
     tilt (2.0.10)
     timecop (0.9.4)
+    tty-cursor (0.7.1)
+    tty-progressbar (0.18.2)
+      strings-ansi (~> 0.2)
+      tty-cursor (~> 0.7)
+      tty-screen (~> 0.8)
+      unicode-display_width (>= 1.6, < 3.0)
+    tty-screen (0.8.1)
+    typhoeus (1.4.0)
+      ethon (>= 0.9.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.0.0)
@@ -406,6 +418,8 @@ DEPENDENCIES
   spring-commands-rubocop
   spring-watcher-listen
   timecop
+  tty-progressbar
+  typhoeus
   validate_url (~> 1.0)
   vcr
   web-console (>= 4.1.0)

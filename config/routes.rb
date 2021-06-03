@@ -3,6 +3,8 @@
 Rails.application.routes.draw do
   scope format: false do
     root to: 'home#index'
+
+    resources :quotes
   end
 
   devise_for :user, path: '', controllers: { omniauth_callbacks: 'authentications' }

@@ -1,0 +1,298 @@
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="bg-gray-900">
+  <div class="pt-12 sm:pt-16 lg:pt-24">
+    <div class="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto space-y-2 lg:max-w-none">
+        <h2 class="text-3xl leading-6 font-extrabold uppercase tracking-wider text-white sm:text-4xl lg:text-5xl">
+          Quote #<%= quote.number %>
+        </h2>
+        <p class="text-xl text-gray-300">
+          Choose whether you'd like us to manage your order for you from start to finish, or simply get it to your destination.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="mt-8 pb-12 bg-gray-50 sm:mt-12 sm:pb-16 lg:mt-16 lg:pb-24">
+    <div class="relative">
+      <div class="absolute inset-0 h-3/4 bg-gray-900"></div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md mx-auto space-y-4 lg:max-w-5xl lg:grid lg:grid-cols-2 lg:gap-5 lg:space-y-0">
+          <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+            <div class="px-6 py-3 bg-white sm:p-10 sm:pb-6">
+              <div>
+                <h3 class="inline-flex px-4 py-1 rounded-full text-sm font-semibold tracking-wide uppercase bg-indigo-100 text-indigo-600" id="tier-standard">
+                  Hauling
+                </h3>
+              </div>
+              <div class="mt-4 flex items-baseline text-2xl font-extrabold">
+                5,000,000
+                <span class="ml-1 text-2xl font-medium text-gray-500">
+                  ISK
+                </span>
+              </div>
+              <p class="mt-5 text-lg text-gray-500">
+                We'll get your package quickly and safely to any one of our supported destinations.
+              </p>
+            </div>
+            <div class="grid grid-cols-1 gap-y-6 gap-x-4 bg-white sm:px-10 sm:pb-3 sm:grid-cols-6">
+              <div class="sm:col-span-3">
+                <label for="location" class="block text-sm font-medium text-gray-700">Origin</label>
+                <select id="location" name="location" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-cyan-500 sm:text-sm rounded-md">
+                  <option selected>Badivefi</option>
+                  <option>Efa</option>
+                  <option>Ibani</option>
+                  <option>Irmalin</option>
+                  <option>P-ZMZV</option>
+                </select>
+              </div>
+              <div class="sm:col-span-3">
+                <label for="location" class="block text-sm font-medium text-gray-700">Destination</label>
+                <select id="location" name="location" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-cyan-500 sm:text-sm rounded-md">
+                  <option>Badivefi</option>
+                  <option>Efa</option>
+                  <option selected>Ibani</option>
+                  <option>Irmalin</option>
+                  <option>P-ZMZV</option>
+                </select>
+              </div>
+            </div>
+            <div class="flex-1 flex flex-col justify-between px-6 pt-6 pb-8 bg-gray-50 space-y-6 sm:p-10 sm:pt-6">
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <div class="flex-shrink-0">
+                    <!-- Heroicon name: outline/check -->
+                    <svg class="h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-base text-gray-700">
+                    <span class="font-semibold text-gray-900">5 million ISK</span> minimum
+                  </p>
+                </li>
+
+                <li class="flex items-start">
+                  <div class="flex-shrink-0">
+                    <!-- Heroicon name: outline/check -->
+                    <svg class="h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-base text-gray-700">
+                    Up to <span class="font-semibold text-gray-900">320,000m<sup>3</sup></span> cargo volume
+                  </p>
+                </li>
+
+                <li class="flex items-start">
+                  <div class="flex-shrink-0">
+                    <!-- Heroicon name: outline/check -->
+                    <svg class="h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-base text-gray-700">
+                    Up to <span class="font-semibold text-gray-900">3 billion ISK</span> in collateral
+                  </p>
+                </li>
+              </ul>
+              <div class="rounded-md shadow">
+                <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900" aria-describedby="tier-standard">
+                  Get started
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+            <div class="px-6 py-8 bg-white sm:p-10 sm:pb-6">
+              <div>
+                <h3 class="inline-flex px-4 py-1 rounded-full text-sm font-semibold tracking-wide uppercase bg-indigo-100 text-indigo-600" id="tier-standard">
+                  Procurement
+                </h3>
+              </div>
+              <div class="mt-4 flex items-baseline text-2xl font-extrabold">
+                5,000,000
+                <span class="ml-1 text-2xl font-medium text-gray-500">
+                  ISK
+                </span>
+              </div>
+              <p class="mt-5 text-lg text-gray-500">
+                We'll take care of procuring and transporting your order from start to finish.
+              </p>
+            </div>
+            <div class="grid grid-cols-1 gap-y-6 gap-x-4 bg-white sm:px-10 sm:pb-3 sm:grid-cols-1">
+              <div class="sm:col-span-1">
+                <label for="location" class="block text-sm font-medium text-gray-700">Destination</label>
+                <select id="location" name="location" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-cyan-500 sm:text-sm rounded-md">
+                  <option>Badivefi</option>
+                  <option>Efa</option>
+                  <option selected>Ibani</option>
+                  <option>Irmalin</option>
+                  <option>P-ZMZV</option>
+                </select>
+              </div>
+            </div>
+            <div class="flex-1 flex flex-col justify-between px-6 pt-6 pb-8 bg-gray-50 space-y-6 sm:p-10 sm:pt-6">
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <div class="flex-shrink-0">
+                    <!-- Heroicon name: outline/check -->
+                    <svg class="h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-base text-gray-700">
+                    <span class="font-semibold text-gray-900">5 million ISK</span> minimum
+                  </p>
+                </li>
+
+                <li class="flex items-start">
+                  <div class="flex-shrink-0">
+                    <!-- Heroicon name: outline/check -->
+                    <svg class="h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-base text-gray-700">
+                  <span class="font-semibold text-gray-900">18%</span> base rate for all orders
+                  </p>
+                </li>
+
+                <li class="flex items-start">
+                  <div class="flex-shrink-0">
+                    <!-- Heroicon name: outline/check -->
+                    <svg class="h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-base text-gray-700">
+                    No deposit required under <span class="font-semibold text-gray-900">1 billion ISK</span>
+                  </p>
+                </li>
+              </ul>
+              <div class="rounded-md shadow">
+                <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900" aria-describedby="tier-standard">
+                  Get started
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4 relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:mt-5">
+      <div class="max-w-md mx-auto lg:max-w-5xl">
+        <div class="rounded-lg bg-gray-100 px-6 py-8 sm:p-10 lg:flex lg:items-center">
+          <div class="flex-1">
+            <div>
+              <h3 class="inline-flex px-4 py-1 rounded-full text-sm font-semibold tracking-wide uppercase bg-white text-gray-800">
+                Reprocessing
+              </h3>
+            </div>
+            <div class="mt-4 text-lg text-gray-600">Have your ice or ore reprocessed at participating stations for <span class="font-semibold text-gray-900">2%</span> of the output materials. We have maximum reprocessing skills and implants for ice, highsec, and most lowsec ore, with yields between <span class="font-semibold text-gray-900">75.3%</span> and <span class="font-semibold text-gray-900">84.3%</span> depending on the station.</div>
+          </div>
+          <div class="mt-6 rounded-md shadow lg:mt-0 lg:ml-10 lg:flex-shrink-0">
+            <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
+              Get a reprocessing quote
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4 relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:mt-5">
+      <div class="min-w-md mx-auto lg:max-w-5xl">
+        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                  Item
+                </th>
+                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                  Quantity
+                </th>
+                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                  m<sup>3</sup> (Single)
+                </th>
+                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                  m<sup>3</sup> (Total)
+                </th>
+                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                  ISK (Single)
+                </th>
+                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                  ISK (Total)
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% quote.items.each do |item| %>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="flex-shrink-0 w-10 h-10">
+                        <img class="w-10 h-10 rounded-full" src="https://imageserver.eveonline.com/Type/<%= item['id'] %>_32.png" alt="">
+                      </div>
+                      <div class="ml-4">
+                        <div class="text-sm font-medium text-gray-900">
+                          <%= item['name'] %>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-left text-gray-900"><%= number_with_delimiter(item['quantity'], delimiter: ',') %></div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-left text-gray-900"><%= number_with_precision(item['packaged_volume'], precision: 2, delimiter: ',') %></div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-left text-gray-900"><%= number_with_precision(item['packaged_volume'] * item['quantity'], precision: 2, delimiter: ',') %></div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-left text-gray-900"><%= number_with_precision(item['sell_price_min'], precision: 2, delimiter: ',') %></div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-left text-gray-900"><%= number_with_precision(item['sell_price_min'] * item['quantity'], precision: 2, delimiter: ',') %></div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan=3 class="px-6 py-4 whitespace-nowrap">
+                </td>
+                <td colspan=2 class="px-6 py-2 whitespace-nowrap">
+                  <div class="text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Total Buy Value</div>
+                </td>
+                <td class="px-6 py-2 whitespace-nowrap">
+                  <div class="font-medium text-sm text-left text-gray-900 "><%= number_with_precision(quote.total_buy, delimiter: ',', precision: 2) %></div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan=3 class="px-6 py-4 whitespace-nowrap">
+                </td>
+                <td colspan=2 class="px-6 py-2 whitespace-nowrap">
+                  <div class="text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Total Sell Value</div>
+                </td>
+                <td class="px-6 py-2 whitespace-nowrap">
+                  <div class="font-medium text-sm text-left text-gray-900 "><%= number_with_precision(quote.total_sell, delimiter: ',', precision: 2) %></div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan=3 class="px-6 py-4 whitespace-nowrap">
+                </td>
+                <td colspan=2 class="px-6 py-2 whitespace-nowrap">
+                  <div class="text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Total Volume (Packaged)</div>
+                </td>
+                <td class="px-6 py-2 whitespace-nowrap">
+                  <div class="font-medium text-sm text-left text-gray-900"><%= number_with_precision(quote.packaged_volume, delimiter: ',', precision: 2) %></div>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
