@@ -21,13 +21,17 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.3'
 gem 'rails', '~> 6.1.3'
 gem 'retriable', '~> 3.1.2'
-gem 'sentry-rails', '~> 4.5'
-gem 'sentry-ruby', '~> 4.5'
 gem 'spring', require: false
 gem 'tty-progressbar', require: false
 gem 'typhoeus', require: false
 gem 'validate_url', '~> 1.0'
 gem 'webpacker', '~> 5.4'
+
+group :staging, :production do
+  gem 'newrelic_rpm', '~> 7.1'
+  gem 'sentry-rails', '~> 4.5'
+  gem 'sentry-ruby', '~> 4.5'
+end
 
 group :development, :test do
   gem 'factory_bot_rails'
