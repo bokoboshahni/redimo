@@ -47,8 +47,8 @@ module HOS
 
     config.x.hos.user_agent = 'House of Suns/1.0; (+https://github.com/bokoboshahni/hos)'
 
-    config.x.hos.allowed_alliance_ids = ENV.fetch('ALLOWED_ALLIANCE_IDS', '').strip.split(',')
-    config.x.hos.allowed_corporation_ids = ENV.fetch('ALLOWED_CORPORATION_IDS', '').strip.split(',')
+    config.x.hos.allowed_alliance_ids = ENV.fetch('ALLOWED_ALLIANCE_IDS', '').strip.split(',').map(&:to_i)
+    config.x.hos.allowed_corporation_ids = ENV.fetch('ALLOWED_CORPORATION_IDS', '').strip.split(',').map(&:to_i)
 
     config.load_defaults 6.1
 

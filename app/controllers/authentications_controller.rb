@@ -4,6 +4,8 @@
 class AuthenticationsController < Devise::OmniauthCallbacksController
   skip_before_action :verify_authenticity_token, only: %i[customer associate]
 
+  layout 'landing'
+
   def associate
     esi_callback
   end
@@ -13,13 +15,22 @@ class AuthenticationsController < Devise::OmniauthCallbacksController
   end
 
   def failure
-    redirect_to root_path
+    render :error
   end
 
   private
 
   def esi_callback
     user = User.from_esi(request.env['omniauth.auth'])
-    sign_in_and_redirect(user, event: :authentication) if user.persisted?
+    if user.persisted? && allowed_alliance_ids.exclude?(user.eve_alliance_id)
+      user.destroy
+      render :error
+    elsif user.persisted?
+      sign_in_and_redirect(user, event: :authentication) if user.persisted?
+    end
+  end
+
+  def allowed_alliance_ids
+    Rails.application.config.x.hos.allowed_alliance_ids
   end
 end
