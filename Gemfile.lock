@@ -149,6 +149,7 @@ GEM
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
+    le (2.7.6)
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -402,6 +403,7 @@ DEPENDENCIES
   faraday (~> 1.4)
   faraday-http-cache (~> 2.2)
   faraday_middleware (~> 1.0)
+  le (~> 2.7)
   listen (~> 3.5)
   lockbox (~> 0.6)
   nanoid (~> 2.0)
