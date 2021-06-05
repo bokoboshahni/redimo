@@ -5,7 +5,9 @@ default: &default
 
 development:
   <<: *default
+  <% if !ENV['DATABASE_URL'] %>
   database: hos_development
+  <% end %>
 
 test:
   <<: *default
