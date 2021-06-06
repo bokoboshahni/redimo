@@ -10,33 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_29_234347) do
+ActiveRecord::Schema.define(version: 2021_05_29_210029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
-
-  create_table "eve_types", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.decimal "capacity"
-    t.text "description"
-    t.jsonb "dogma_attributes"
-    t.jsonb "dogma_effects"
-    t.integer "graphic_id"
-    t.integer "group_id"
-    t.integer "icon_id"
-    t.integer "market_group_id"
-    t.decimal "mass"
-    t.text "name"
-    t.decimal "packaged_volume"
-    t.integer "portion_size"
-    t.boolean "published"
-    t.decimal "radius"
-    t.integer "type_id"
-    t.decimal "volume"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["type_id"], name: "index_eve_types_on_type_id", unique: true
-  end
 
   create_table "quotes", id: :text, force: :cascade do |t|
     t.text "appraisal_id"

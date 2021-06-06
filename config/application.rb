@@ -43,12 +43,19 @@ module HOS
 
     config.x.esi.base_url = 'https://esi.evetech.net'
 
+    config.x.github.token = ENV['GITHUB_TOKEN']
+
     config.x.janice.api_key = ENV['JANICE_API_KEY']
 
     config.x.hos.user_agent = 'House of Suns/1.0; (+https://github.com/bokoboshahni/hos)'
 
     config.x.hos.allowed_alliance_ids = ENV.fetch('ALLOWED_ALLIANCE_IDS', '').strip.split(',').map(&:to_i)
     config.x.hos.allowed_corporation_ids = ENV.fetch('ALLOWED_CORPORATION_IDS', '').strip.split(',').map(&:to_i)
+
+    config.x.data_bucket_access_key_id = ENV['DATA_BUCKET_ACCESS_KEY_ID']
+    config.x.data_bucket_endpoint = ENV['DATA_BUCKET_ENDPOINT']
+    config.x.data_bucket_name = ENV['DATA_BUCKET_NAME']
+    config.x.data_bucket_secret_access_key = ENV['DATA_BUCKET_SECRET_ACCESS_KEY']
 
     config.load_defaults 6.1
 
