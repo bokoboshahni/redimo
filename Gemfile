@@ -7,11 +7,14 @@ ruby '3.0.1'
 
 gem 'dotenv-rails', groups: %i[development test]
 
+gem 'aws-sdk-s3', '~> 1.96'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', github: 'heartcombo/devise'
+gem 'down', '~> 5.2'
 gem 'faraday', '~> 1.4'
 gem 'faraday-http-cache', '~> 2.2'
 gem 'faraday_middleware', '~> 1.0'
+gem 'kiba', '~> 4.0'
 gem 'lockbox', '~> 0.6'
 gem 'nanoid', '~> 2.0'
 gem 'omniauth', '~> 2.0'
@@ -20,14 +23,22 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.3'
 gem 'rails', '~> 6.1.3'
+gem 'redis', '~> 4.2'
+gem 'redis-namespace', '~> 1.8'
 gem 'retriable', '~> 3.1.2'
-gem 'sentry-rails', '~> 4.5'
-gem 'sentry-ruby', '~> 4.5'
+gem 'shrine', '~> 3.0'
+gem 'sidekiq', '~> 6.2'
+gem 'sidekiq-scheduler', '~> 3.1'
 gem 'spring', require: false
 gem 'tty-progressbar', require: false
 gem 'typhoeus', require: false
 gem 'validate_url', '~> 1.0'
 gem 'webpacker', '~> 5.4'
+
+group :staging, :production do
+  gem 'sentry-rails', '~> 4.5'
+  gem 'sentry-ruby', '~> 4.5'
+end
 
 group :development, :test do
   gem 'factory_bot_rails'
