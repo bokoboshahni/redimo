@@ -7,5 +7,6 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.acronym 'HOS'
   inflect.acronym 'ID'
   inflect.acronym 'PushX'
+  inflect.acronym 'SDE'
   inflect.acronym 'UUID'
 end
