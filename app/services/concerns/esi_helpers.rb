@@ -4,8 +4,8 @@
 module ESIHelpers
   extend ActiveSupport::Concern
 
-  def esi_get_connection
-    @esi_connection = Faraday.new do |f|
+  def esi_anon_connection
+    @esi_anon_connection = Faraday.new do |f|
       f.use :http_cache, store: Rails.cache, logger: Rails.logger, instrumenter: ActiveSupport::Notifications
       f.request :url_encoded
       f.request :retry
@@ -14,12 +14,16 @@ module ESIHelpers
     end
   end
 
-  def esi_get(path, params = {}, headers = {})
-    response = esi_get_connection.get("#{esi_config.base_url}#{path}") do |req|
+  def esi_anon_get(path, params = {}, headers = {})
+    response = esi_anon_connection.get("#{esi_config.base_url}#{path}") do |req|
       req.headers = headers.merge(esi_default_headers)
       req.params = params
     end
     response.body
+  end
+
+  def esi_base_url
+    esi_config.base_url
   end
 
   def esi_default_headers

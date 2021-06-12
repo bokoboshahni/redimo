@@ -50,6 +50,15 @@ module HOS
     config.x.hos.allowed_alliance_ids = ENV.fetch('ALLOWED_ALLIANCE_IDS', '').strip.split(',').map(&:to_i)
     config.x.hos.allowed_corporation_ids = ENV.fetch('ALLOWED_CORPORATION_IDS', '').strip.split(',').map(&:to_i)
 
+    config.x.sde.archive = ActiveSupport::OrderedOptions.new.tap do |archive|
+      archive.access_key_id = ENV['SDE_ARCHIVE_ACCESS_KEY_ID']
+      archive.endpoint = ENV['SDE_ARCHIVE_ENDPOINT']
+      archive.bucket = ENV['SDE_ARCHIVE_BUCKET']
+      archive.prefix = ENV.fetch('SDE_ARCHIVE_PREFIX', 'sde')
+      archive.region = ENV.fetch('SDE_ARCHIVE_REGION', 'us-west-2')
+      archive.secret_access_key = ENV['SDE_ARCHIVE_SECRET_ACCESS_KEY']
+    end
+
     config.load_defaults 6.1
 
     # Configuration for the application, engines, and railties goes here.
